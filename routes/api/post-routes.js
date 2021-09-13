@@ -31,8 +31,8 @@ router.get('/', (req, res) => {
             attributes: ['username']
           }
         ]
-       })
-
+       });
+      });
 
 router.get('/:id', (req, res) => {
     Post.findOne({

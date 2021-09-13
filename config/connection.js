@@ -11,9 +11,10 @@ if (process.env.JAWSDB_URL) {
 }
 
 
+
+// With dotenv -----------------------------------
 // // import the Sequelize constructor from the library
 // const Sequelize = require('sequelize');
-
 
 // require('dotenv').config();
 
