@@ -1,15 +1,37 @@
+// for front end
+const path = require('path');
+
 const express = require('express');
-const routes = require('./routes');
+
+// code to set up Handlebars.js as your app's template engine of choice
+const exphbs = require('express-handlebars');
+
+
+const routes = require('./controllers/');
+
 const sequelize = require('./config/connection');
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
+const hbs = exphbs.create({});
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// built in express.js middleware function that serve folder as static assets for front end
+app.use(express.static(path.join(__dirname, 'public')));
+
 // turn on routes
 app.use(routes);
+
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
@@ -17,3 +39,10 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 //  force: true  == allows the table to be overwritten and re-created. 
+
+
+
+
+
+
+
