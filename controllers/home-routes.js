@@ -20,8 +20,21 @@ const { Post, User, Comment } = require('../models');
 //       });
 //     });
 
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }       
+  
+  res.render('login');
+});
+
+
     router.get('/', (req, res) => {
-        Post.findAll({
+     
+      console.log(req.session);
+     
+      Post.findAll({
           attributes: [
             'id',
             'post_url',
@@ -55,9 +68,6 @@ const { Post, User, Comment } = require('../models');
             res.status(500).json(err);
           });
       });
-
-
-
 
 
 module.exports = router;
