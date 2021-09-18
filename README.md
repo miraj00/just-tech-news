@@ -74,7 +74,7 @@ just-tech-news is session based site. It offers techs to read others post, add p
 
 ## Below is the screenshot and Deployed application of the Project as per client request ## 
 
-![Screenshot of web page](./public/assets/images/just-tech-news.JPG)
+![Screenshot of web page](./public/assets/images/just-tech-news.jpg)
 
 
 ## Deployed Sites ##
